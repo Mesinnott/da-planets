@@ -120,10 +120,15 @@ function inhabitGalaxy(creatureId, input, cb){
 
     DS.find(location, locId).then(function(place){
 
+        let tooth = place.galaxyId
 
         Creature.find(creatureId).then(function(creature){
             creature[locIds] = creature[locIds] || {}
             creature[locIds][locId]= locId;
+
+            creature['galaxyIds'] = creature['galaxyIds'] || {}
+            creature['galaxyIds'][tooth]=tooth;
+
             place.creatureIds = place.creatureIds || {}
             place.creatureIds[creatureId] = creatureId;
 
