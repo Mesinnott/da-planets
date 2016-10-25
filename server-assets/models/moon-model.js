@@ -24,7 +24,16 @@ let Moon = DS.defineResource({
                 localKey: 'planetId',
                 parent: true
             }
-        }
+        },
+    hasMany:{
+        creature:[{
+          localField: 'creature',
+          localKeys: 'creatureIds'
+      },{
+          localField: 'knownCreatures',
+          foreignKeys: 'moonIds'
+      }],
+    }
     }
 })
 schemator.defineSchema('Moon', {
@@ -54,28 +63,28 @@ schemator.defineSchema('Moon', {
 function create(moon, cb) {
     // Use the Resource Model to create a new moon
     DS.find('planet', moon.planetId).then(function (planet) {
-        DS.find('star', planet.starId).then(function (star) {
+        // DS.find('star', planet.starId).then(function (star) {
             let moonObj = {
                 id: uuid.v4(),
                 name: moon.name,
                 planetId: moon.planetId,
                 starId: planet.starId,
-                galaxyId: star.galaxyId
+                galaxyId: planet.galaxyId
             };
             let error = schemator.validateSync('Moon', moonObj)
             if (error) {
-                error.stack
+                // error.stack = true
                 return cb(error)
             }
 
             Moon.create(moonObj).then(cb).catch(cb)
         }).catch(cb)
-    }).catch(cb)
+    // }).catch(cb)
 }
 
 function getAll(query, cb) {
     //Use the Resource Model to get all Galaxies
-    Moon.findAll({}).then(cb).catch(cb)
+    Moon.findAll({}, formatQuery(query)).then(cb).catch(cb)
 }
 
 function getById(id, query, cb) {

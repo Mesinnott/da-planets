@@ -24,9 +24,16 @@ let Planet = DS.defineResource({
         hasMany: {
             moon: {
                 localField: 'moons',
-                localKey: 'planetId'
-            }
-        }
+                foreignKey: 'galaxyId'
+            },
+        creature:[{
+          localField: 'creature',
+          localKeys: 'creatureIds'
+      },{
+          localField: 'knownCreatures',
+          foreignKeys: 'planetIds'
+      }],
+    }
     }
 })
 
@@ -59,8 +66,7 @@ function create(planet, cb) {
             galaxyId: star.galaxyId
         };
         let error = schemator.validateSync('Planet', planetObj)
-        if (error) {
-            error.stack
+        if (error) {  
             return cb(error)
         }
         Planet.create(planetObj).then(cb).catch(cb)
@@ -69,7 +75,7 @@ function create(planet, cb) {
 
 function getAll(query, cb) {
     //Use the Resource Model to get all Galaxies
-    Planet.findAll({}).then(cb).catch(cb)
+    Planet.findAll({}, formatQuery(query)).then(cb).catch(cb)
 }
 
 function getById(id, query, cb) {

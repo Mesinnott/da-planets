@@ -1,2 +1,4 @@
 {"id":"1e66e052-eb1e-48a1-abae-e6dc0cbbe769","name":"Andromedia","_id":"1e66e052-eb1e-48a1-abae-e6dc0cbbe769"}
-{"id":"7fcf6d49-ae69-4bfb-a659-94b1c94f2511","name":"turkey","_id":"7fcf6d49-ae69-4bfb-a659-94b1c94f2511"}
+{"id":"7fcf6d49-ae69-4bfb-a659-94b1c94f2511","name":"turkey","_id":"7fcf6d49-ae69-4bfb-a659-94b1c94f2511","creatureIds":{"7ae93094-e0df-4730-b7c5-6748b48cae3a":"7ae93094-e0df-4730-b7c5-6748b48cae3a"}}
+{"id":"7fcf6d49-ae69-4bfb-a659-94b1c94f2511","name":"turkey","_id":"7fcf6d49-ae69-4bfb-a659-94b1c94f2511","creatureIds":{"7ae93094-e0df-4730-b7c5-6748b48cae3a":"7ae93094-e0df-4730-b7c5-6748b48cae3a"}}
+{"id":"1e66e052-eb1e-48a1-abae-e6dc0cbbe769","name":"Andromedia","_id":"1e66e052-eb1e-48a1-abae-e6dc0cbbe769","creatureIds":{"7ae93094-e0df-4730-b7c5-6748b48cae3a":"7ae93094-e0df-4730-b7c5-6748b48cae3a"}}
